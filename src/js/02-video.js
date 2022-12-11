@@ -14,9 +14,9 @@ player.on('play', function() {
 player.on('timeupdate', throttle(setItemToLocalStorage, 1000));
 
 function setItemToLocalStorage (data) {
-    console.log("Записані дані:", data);
+    //console.log("Записані дані:", data);
     const dataJson = JSON.stringify(data);
-    console.log("json дані:", dataJson);
+    //console.log("json дані:", dataJson);
     localStorage.setItem(KEY, dataJson);
 }
 
