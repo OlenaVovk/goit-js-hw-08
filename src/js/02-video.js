@@ -20,4 +20,8 @@ function setItemToLocalStorage (data) {
     localStorage.setItem(KEY, dataJson);
 }
 
-//player.setCurrentTime(number)
+const time = JSON.parse(localStorage.getItem(KEY));
+console.log("time", time);
+console.log("seconds", time.seconds);
+
+player.setCurrentTime(time.seconds);
