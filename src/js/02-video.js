@@ -28,4 +28,3 @@ if (!time) {
 
 player.setCurrentTime(time);
 
-localStorage.removeItem(KEY);
