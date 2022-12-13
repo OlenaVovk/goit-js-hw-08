@@ -14,7 +14,7 @@ onGetLocalStorage();
 function onFormInput(evt) {
 
     formData[evt.target.name] = evt.target.value;
-    console.log("Записані дані:", formData);
+    //console.log("Записані дані:", formData);
     const formDataJson = JSON.stringify(formData);
     localStorage.setItem(KEY, formDataJson);
 }
@@ -32,7 +32,7 @@ function onFormSubmit(evt) {
 function onGetLocalStorage() {
     
     formData = JSON.parse(localStorage.getItem(KEY));
-    console.log("Збережені дані:", formData);
+    //console.log("Збережені дані:", formData);
     
     if (formData && formData.email) {
         input.value = formData.email;

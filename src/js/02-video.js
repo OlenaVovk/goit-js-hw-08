@@ -3,7 +3,7 @@ import Player from '@vimeo/player';
 
 const iframe = document.querySelector('iframe');
 const KEY = "videoplayer-current-time";
-let data = {};
+let time;
 
 
 const player = new Player(iframe);
@@ -15,13 +15,17 @@ player.on('timeupdate', throttle(setItemToLocalStorage, 1000));
 
 function setItemToLocalStorage (data) {
     //console.log("Записані дані:", data);
-    const dataJson = JSON.stringify(data);
+    const dataJson = JSON.stringify(data.seconds);
     //console.log("json дані:", dataJson);
     localStorage.setItem(KEY, dataJson);
 }
 
-const time = JSON.parse(localStorage.getItem(KEY));
-console.log("time", time);
-console.log("seconds", time.seconds);
+time = JSON.parse(localStorage.getItem(KEY));
+if (!time) {
+    time = 0;
+}
+//console.log("time", time);
 
-player.setCurrentTime(time.seconds);
+player.setCurrentTime(time);
+
+localStorage.removeItem(KEY);
